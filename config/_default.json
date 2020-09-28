@@ -1,0 +1,4 @@
+{
+  "mongoURI": "Paste your MongoDB connection URI here and rename this file as 'default.json'",
+  "jwtSecret": "your_super_secret_secret"
+}
