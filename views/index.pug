@@ -9,18 +9,18 @@ block content
             p Search by words in your snippet description, separate multiple search criteria with a space
 
         form#searchSnippet
-            input.form-control#searchCriteria(type='text', placeholder='ie. express async route try catch')
+            input.form-control#searchCriteria(type='text', placeholder='ie. express async route try/catch fetch puppeteer')
         ul.snippetsList
         #results.mt-1
-        form.mt-3(action='api/snippet/addSnippet', method='post')
+        form.mt-3#addSnippet
             .form-group
                 label(for='snippetDescription') Write the description for your snippet. Snippets are searched by this description.
-                textarea.form-control#snippetDescription(name='description', placeholder='ie. Async express post route with a try/catch block and basic error handling')
+                textarea.form-control#snippetDescription(placeholder='ie. Async express post route with a try/catch block and basic error handling')
             
             .form-group
                 label(for='snippet') Paste or write your snippet below
                 code
-                    textarea.form-control#snippet(name='snippet')
+                    textarea.form-control#snippet
             button.btn.btn-success.mt-3(type='submit') Send
         
         .snippetsContainer

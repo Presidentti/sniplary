@@ -2,6 +2,14 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+::-moz-selection {
+  background-color: #22646d;
+}
+
+::selection {
+  background-color: #22646d;
+}
+
 body {
   background-image: linear-gradient(109.6deg, #05545e 16%, #bbb 91.1%);
   min-height: 100vh;

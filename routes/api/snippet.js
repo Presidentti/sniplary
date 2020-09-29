@@ -11,7 +11,7 @@ router.use(
 
 // @route   POST api/snippet/add
 // @desc    Add new snippet to the Sniplary
-// @access  Private
+// @access  Private /*TODO*/
 router.post('/addSnippet', async (req, res) => {
   try {
     const { description, snippet } = req.body;
@@ -21,19 +21,23 @@ router.post('/addSnippet', async (req, res) => {
       snippet,
     });
 
-    await snip.save();
-
-    // TODO //
-    //Use the Fetch API instead of regular form submission and inform the user after successful submission
-    res.redirect('/');
+    await snip.save((err) => {
+      if (err) {
+        console.log(err);
+        res.json({ success: false });
+      } else {
+        res.status(200).json({ success: true });
+      }
+    });
   } catch (err) {
+    //Only basic error handling here
     console.log(err);
   }
 });
 
 // @route   POST api/snippet/search
-// @desc    Search the DB for snippets matching search criteria
-// @access  Private
+// @desc    Search the DB for any snippets matching the search criteria
+// @access  Private /*TODO*/
 router.post('/search', async (req, res, next) => {
   const { searchString } = req.body;
 
@@ -55,9 +59,8 @@ router.post('/search', async (req, res, next) => {
       }
     });
   } catch (err) {
-    if (err) {
-      console.log(err);
-    }
+    //Only basic error handling here
+    console.log(err);
   }
 });
 
