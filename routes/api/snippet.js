@@ -9,6 +9,13 @@ router.use(
   })
 );
 
+// @route   GET api/snippet
+// @desc    Route for Rickrolling innocent victims // Limited time only!!
+// @access  Public
+router.get('/', (req, res) => {
+  res.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+});
+
 // @route   POST api/snippet/add
 // @desc    Add new snippet to the Sniplary
 // @access  Private /*TODO*/
