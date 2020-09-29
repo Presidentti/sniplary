@@ -6,8 +6,7 @@ function delay(fn, ms) {
   }
 }
 
-
-//Helper function for triggering keyup event
+//Helper function for triggering events
 function triggerEvent(el, type) {
   if ('createEvent' in document) {
     // modern browsers, IE9+
@@ -27,7 +26,6 @@ function searchString(search) {
   searchInput.value = search;
   triggerEvent(searchInput, 'keyup');
 }
-
 
 document.querySelector('#searchCriteria').addEventListener(
   'keyup',

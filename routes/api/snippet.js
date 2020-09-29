@@ -21,7 +21,16 @@ router.get('/', (req, res) => {
 // @access  Private /*TODO*/
 router.post('/addSnippet', async (req, res) => {
   try {
-    const { description, snippet } = req.body;
+    let { description, snippet } = req.body;
+
+
+    //Fixing the persintent XSS vuln
+    const lt = /</g,
+      gt = />/g,
+      ap = /'/g,
+      ic = /"/g;
+
+    snippet = snippet.toString().replace(lt, "&lt;").replace(gt, "&gt;").replace(ap, "&#39;").replace(ic, "&#34;");
 
     let snip = new Snippet({
       description,
